@@ -1,0 +1,446 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0a0a0a;
+    min-height: 100vh;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.header-content {
+    text-align: center;
+}
+
+.club-logo-inline {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.header-text {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+header h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+header .subtitle {
+    font-size: 1.2rem;
+    color: #888;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.page {
+    display: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(20px);
+    animation: fadeIn 0.6s ease-out;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.95); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-container h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.input-group {
+    margin-bottom: 30px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: #ccc;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.input-group input::placeholder {
+    color: #666;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.btn {
+    width: 100%;
+    padding: 18px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    color: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+    color: #0a0a0a;
+    padding: 14px 28px;
+    width: auto;
+    margin: 15px;
+    font-weight: 700;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #00ff88 0%, #00b85c 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+}
+
+.game-container {
+    text-align: center;
+}
+
+.timer-display {
+    margin-bottom: 30px;
+}
+
+.timer-display h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.timer {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #e74c3c;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.game-info {
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.game-area {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.game-area p {
+    margin-bottom: 15px;
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+.game-instruction {
+    color: #888 !important;
+    font-size: 0.95rem !important;
+    font-style: italic;
+}
+
+.result-message {
+    text-align: center;
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.scoreboard-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.scoreboard-container h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.scoreboard {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    backdrop-filter: blur(20px);
+}
+
+.scoreboard-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 20px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scoreboard-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.scoreboard-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.scoreboard-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.scoreboard-item:last-child {
+    border-bottom: none;
+}
+
+.rank-1 {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+    color: #ffd700;
+    font-weight: 700;
+    border-left: 4px solid #ffd700;
+}
+
+.rank-2 {
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(192, 192, 192, 0.1));
+    color: #c0c0c0;
+    font-weight: 700;
+    border-left: 4px solid #c0c0c0;
+}
+
+.rank-3 {
+    background: linear-gradient(135deg, rgba(205, 127, 50, 0.2), rgba(205, 127, 50, 0.1));
+    color: #cd7f32;
+    font-weight: 700;
+    border-left: 4px solid #cd7f32;
+}
+
+.no-scores {
+    text-align: center;
+    padding: 60px 40px;
+    color: #888;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    header h2 {
+        font-size: 2.5rem;
+    }
+    
+    header .subtitle {
+        font-size: 1rem;
+    }
+    
+    .page {
+        padding: 30px 20px;
+    }
+    
+    .timer {
+        font-size: 3rem;
+    }
+    
+    .scoreboard-header,
+    .scoreboard-item {
+        grid-template-columns: 1fr 2fr 1fr;
+        font-size: 14px;
+        padding: 15px 10px;
+    }
+    
+    .form-container {
+        max-width: 100%;
+    }
+    
+    .btn {
+        padding: 16px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h2 {
+        font-size: 2rem;
+    }
+    
+    .timer {
+        font-size: 2.5rem;
+    }
+    
+    .scoreboard-header,
+    .scoreboard-item {
+        font-size: 12px;
+        padding: 12px 8px;
+    }
+    
+    .page {
+        padding: 20px 15px;
+    }
+}
+
+.btn-end-game {
+    background: rgba(231, 76, 60, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-end-game:hover {
+    background: rgba(231, 76, 60, 1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+@media (max-width: 768px) {
+    .club-logo-inline {
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
+    }
+    
+    header h1 {
+        font-size: 0.9rem;
+    }
+    
+    header h2 {
+        font-size: 3rem;
+    }
+    
+    .container {
+        padding: 20px 15px;
+    }
+}

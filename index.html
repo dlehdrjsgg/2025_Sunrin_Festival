@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Sunrin Festival</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><img src="assets/images/logo.png" alt="Layer7 로고" class="club-logo-inline"> Layer7</h1>
+            <h2>2025 Sunrin Festival</h2>
+            <p class="subtitle">"Time Attack : 꼬깔콘 그랑프리"</p>
+        </header>
+
+        <div id="loginPage" class="page active">
+            <div class="login-container">
+                <h2>관리자 로그인</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="adminPassword">관리자 비밀번호:</label>
+                        <input type="password" id="adminPassword" name="adminPassword" required 
+                               placeholder="비밀번호를 입력하세요" maxlength="50" autocomplete="off">
+                    </div>
+                    <button type="submit" class="btn btn-primary">로그인</button>
+                </form>
+                <div id="loginError" class="error-message" style="display: none;">
+                    비밀번호가 올바르지 않습니다.
+                </div>
+            </div>
+        </div>
+
+        <div id="adminPage" class="page">
+            <div class="admin-container">
+                <h3>관리자 페이지</h3>
+                <div class="admin-actions">
+                    <button id="startGameBtn" class="btn btn-primary">게임 시작</button>
+                    <button id="publicScoreboardBtn" class="btn btn-secondary">공개 스코어보드</button>
+                    <button id="manageDataBtn" class="btn btn-secondary">데이터 관리</button>
+                    <button id="logoutBtn" class="btn btn-danger">로그아웃</button>
+                </div>
+                
+                <div class="admin-stats">
+                    <h4>게임 통계</h4>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">총 참가자</span>
+                            <span class="stat-value" id="totalPlayers">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">최고 점수</span>
+                            <span class="stat-value" id="highestScore">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">평균 점수</span>
+                            <span class="stat-value" id="averageScore">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dataPage" class="page">
+            <div class="data-container">
+                <h3>데이터 관리</h3>
+                
+                <div class="data-list">
+                    <h4>최근 게임 기록</h4>
+                    <div id="recentGames" class="recent-games">
+                    </div>
+                </div>
+                
+                <div class="data-actions">
+                    <button id="editDataBtn" class="btn btn-primary">데이터 편집</button>
+                    <button id="backToAdmin" class="btn btn-secondary">관리자 페이지로</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="editPage" class="page">
+            <div class="edit-container">
+                <h3>데이터 편집</h3>
+                
+                <div class="edit-controls">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="학번 또는 이름으로 검색...">
+                        <button id="searchBtn" class="btn btn-secondary">검색</button>
+                    </div>
+                    <button id="addNewBtn" class="btn btn-primary">새 기록 추가</button>
+                </div>
+                
+                <div class="edit-list">
+                    <div id="editGamesList" class="edit-games-list">
+                    </div>
+                </div>
+                
+                <div class="edit-actions">
+                    <button id="saveAllBtn" class="btn btn-primary">모든 변경사항 저장</button>
+                    <button id="cancelEditBtn" class="btn btn-secondary">취소</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">기록 편집</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="input-group">
+                            <label for="editStudentId">학번:</label>
+                            <input type="text" id="editStudentId" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="editStudentName">이름:</label>
+                            <input type="text" id="editStudentName" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="editScore">찾은 개수:</label>
+                            <input type="number" id="editScore" required min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="editTimestamp">게임 시간:</label>
+                            <input type="datetime-local" id="editTimestamp" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveEditBtn" class="btn btn-primary">저장</button>
+                    <button id="cancelEditModalBtn" class="btn btn-secondary">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>

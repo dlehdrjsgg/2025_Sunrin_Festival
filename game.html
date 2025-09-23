@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Sunrin Festival</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><img src="assets/images/logo.png" alt="Layer7 로고" class="club-logo-inline"> Layer7</h1>
+            <h2>2025 Sunrin Festival</h2>
+            <p class="subtitle">"Time Attack : 꼬깔콘 그랑프리"</p>
+        </header>
+
+        <div id="startPage" class="page active">
+            <div class="form-container">
+                <h3>게임 시작</h3>
+                <form id="startForm">
+                    <div class="input-group">
+                        <label for="studentId">학번:</label>
+                        <input type="text" id="studentId" name="studentId" required placeholder="예: 12345" 
+                               maxlength="10" pattern="[0-9]{3,10}" autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label for="studentName">이름:</label>
+                        <input type="text" id="studentName" name="studentName" required placeholder="예: 홍길동" 
+                               maxlength="20" pattern="[가-힣a-zA-Z0-9\s]{2,20}" autocomplete="off">
+                    </div>
+                    <button type="submit" class="btn btn-primary">게임 시작</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="gamePage" class="page">
+            <div class="game-container">
+                <div class="timer-display">
+                    <h3>남은 시간</h3>
+                    <div id="timer" class="timer">01:00</div>
+                </div>
+                <div class="game-area">
+                    <p>1분 동안 찾기 게임을 진행하세요!</p>
+                    <p class="game-instruction">시간이 끝나면 찾은 개수를 입력할 수 있습니다.</p>
+                    <button id="endGameBtn" class="btn-end-game" onclick="alert('버튼 클릭됨!'); document.getElementById('gamePage').classList.remove('active'); document.getElementById('resultPage').classList.add('active');">게임 종료</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultPage" class="page">
+            <div class="form-container">
+                <h3>게임 종료!</h3>
+                <p class="result-message">1분 타임어택이 완료되었습니다.</p>
+                <form id="resultForm">
+                    <div class="input-group">
+                        <label for="finalScore">찾은 개수:</label>
+                        <input type="number" id="finalScore" name="finalScore" required min="0" max="999" 
+                               placeholder="찾은 개수를 입력하세요" autocomplete="off">
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="saveResult(event)">결과 저장</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="completePage" class="page">
+            <div class="form-container">
+                <h3>게임 완료!</h3>
+                <p class="result-message">결과가 저장되었습니다.</p>
+                <div class="completion-info">
+                    <p><strong>학번:</strong> <span id="completedStudentId"></span></p>
+                    <p><strong>이름:</strong> <span id="completedStudentName"></span></p>
+                    <p><strong>찾은 개수:</strong> <span id="completedScore"></span></p>
+                </div>
+                <button id="newGameBtn" class="btn btn-primary">새 게임 시작</button>
+                <button id="viewScoreboardBtn" class="btn btn-secondary">스코어보드 보기</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/game.js"></script>
+</body>
+</html>
